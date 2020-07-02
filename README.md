@@ -11,6 +11,7 @@ Adapted from: https://github.com/ErrorErrorError/msi-gs65-gs75-hackintosh
 - [Installation](#installation)
 - [Post-Installation](#post-installation)
 - [Limitations](#limitations)
+- [Troubleshooting](#troubleshooting)
 
 # Requirements
 
@@ -113,4 +114,14 @@ You're done ! When your computer starts, as long as the SSD drive where you inst
 
 * The HDMI and Mini-DisplayPort outputs won't work as they are connected to the NVIDIA GPU. However you can connect an external display to the Thunderbolt port.
 
-* Sometime during the macOS boot sequence a black screen may be shown for 3 minutes due to a backlight issue. See [this thread](https://www.tonymacx86.com/threads/bug-black-screen-3-minutes-after-booting-coffeelake-uhd-630.261131/).
+* Sometime during the macOS boot sequence a black screen may be shown for 3 minutes due to a backlight issue. See [this thread](https://www.tonymacx86.com/threads/bug-black-screen-3-minutes-after-booting-coffeelake-uhd-630.261131/). This may be fixed by updating your BIOS, even if you already have the latest BIOS update, as this clear the NVRAM as well.
+
+# Troubleshooting
+
+If you have troubles booting, go to the Clover options and add -v to the boot args, this will display a detailed log while booting.
+
+If you see a OsxAptioFixDrv error, you can try the following:
+* Update your BIOS - even if you already have the latest BIOS installed, this will completely clear the BIOS memory (NVRAM) and probably fix the issue
+* If you still have issues, you can try replacing OsxAptioFixDrv by OsxAptioFix2Drv, OsxAptioFix3Drv or other memory fixes.
+
+If you upgrade macOS, you may also need to update WhateverGreen (https://github.com/acidanthera/whatevergreen/releases) and Lilu (https://github.com/acidanthera/Lilu/releases)
